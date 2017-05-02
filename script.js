@@ -1,6 +1,6 @@
 $(document).ready(function() {
-   for(var x = 0; x<=5; x++){
-       for( var y = 0; y <= 6 ; y++) {
+   for( var y = 0; y <= 5 ; y++){
+        for(var x = 0; x<=6; x++){
            var div = $('<div>').text(x + " , " + y);
            $('body').append(div);
 
