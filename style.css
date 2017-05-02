@@ -10,3 +10,7 @@ div {
     height: 14%;
     display: inline-block;
 }
+
+.taken {
+    background-color: red;
+}
