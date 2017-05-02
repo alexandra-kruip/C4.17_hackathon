@@ -1,7 +1,6 @@
 var xArray = []; // x = big array
 var yArray = []; // y = small array
 $(document).ready(function() {
-<<<<<<< HEAD
    createBoard();
 });
 
@@ -14,19 +13,17 @@ function createBoard () {
             $('body').append(div);
         }
     }
-=======
 
-});
 
 for (var x = 0; x <= 6; x++){
     xArray[x] = yArray;
->>>>>>> 29c74cf36c84e84b4e56100d25dee6df1f7cde90
 }
 for(var y = 0; y <= 5; y++) {
     yArray.push(0);
 }
 
 console.log(xArray);
+}
 
 
 
@@ -59,9 +56,7 @@ console.log(xArray);
     //
     // }
 
-<<<<<<< HEAD
     // when a div with attr x is clicked, loop through all other divs with a class of x
-=======
 
     // var openSpot =
     // div with attr x is clicked, loop through all other divs with a class of x
@@ -69,7 +64,6 @@ console.log(xArray);
     // if taken, go back one div and add taken class
     // if not taken continue until y = 5
     // take last available spot (y = 5)    // if div with attr x is clicked, loop through all other divs with a class of x
->>>>>>> 29c74cf36c84e84b4e56100d25dee6df1f7cde90
     // check if each div has class of empty(null) or taken
     // if taken, go back one div and add taken class
     // if not taken continue until y = 5
