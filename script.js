@@ -1,49 +1,49 @@
 var xArray = []; // x = big array
 var yArray = []; // y = small array
-$(document).ready(function() {
 
+
+$(document).ready(function() {
+    createBoard();
+    $('div').click(colClicked);
 });
 
-for (var x = 0; x <= 6; x++){
+
+
+for(var x = 0; x <= 6; x++){
     xArray[x] = yArray;
 }
 for(var y = 0; y <= 5; y++) {
     yArray.push(0);
 }
-
 console.log(xArray);
 
+function createBoard () {
+    for(var x = 0; x <= 5 ; x++){
+        for(var y = 0; y<=6; y++){
+            var div = $('<div>').text(x + " , " + y).addClass('col' + y);
+            $('body').append(div);
+            selectingCol();
+        }
+    }
+}
+function selectingCol(){
 
 
+}
 
-   // createBoard();
-   // $('div').click(colClicked);
+function colClicked () {
+    console.log("colClicked is running");
+    var xClicked = $(this).attr("class");
 
-//
-// function createBoard () {
-//     for(var x = 0; x <= 5 ; x++){
-//         xArray.push(x);
-//         for(var y = 0; y<=6; y++){
-//             // var div = $('<div id=" + i ">').text(x + " , " + y).attr("x", x).attr("y", y).attr("id", x + '' + y);
-//             $('body').append(div);
-//             yArray.push(y);
-//         }
-//     }
-// }
-//
-// function colClicked () {
-//     console.log("colClicked is running");
-//     var xClicked = parseInt($(this).attr("x"));
-//     console.log(xClicked);
-//
-//     var start = $(this).attr("x", parseInt(xClicked)).attr("y", 0);
-//     console.log(start);
+    var checkCol = $("[class = xClicked]").;
 
+    //var start = $(this).attr("x", parseInt(xClicked)).attr("y", 0);
+    console.log(checkCol);
 
-    // for(var y = 0; y <= 6; y++){
-    //
-    // }
+}
 
+// var xClicked = null;
+// console.log(xClicked);
 
     // var openSpot =
     // div with attr x is clicked, loop through all other divs with a class of x
