@@ -9,8 +9,19 @@ div {
     border: 1px solid black;
     height: 14%;
     display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #ffe862;
 }
 
-.taken {
+.takenPlayer1 {
     background-color: red;
 }
+
+.takenPlayer2 {
+    background-color: blue;
+}
+
+.takenPlayer3 {
+     background-color: orange;
+ }
