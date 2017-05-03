@@ -26,11 +26,12 @@ body{
     top: 25%;
 }
 #gameArea {
-    height: 48vw;
-    width: 32vw;
+    height: 60vw;
+    width: 60vw;
     border: solid 2px black;
     border-radius: 1vh;
     transform: rotate(-90deg);
+    background-color: yellow;
     position: absolute;
     right: 20%;
     top: 3%;
