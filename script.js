@@ -8,7 +8,7 @@ var array = [
     ['','','','','','','']
 
 ]; // array = outer array of columns
-
+var currentPlayer = 0;
 
 $(document).ready(function() {
     createBoard();
@@ -30,26 +30,33 @@ function createBoard () {    //dynamically creates our game board
 // }
 function colClicked () {
     var clicked = $(this).attr("keyValue");
-    var cell = $(this).children('div.innerDiv');
+    var cell = $(this).children("div.innerDiv");
 
-console.log($(this).children());
-
-    for (var i = 0; i < array[clicked].length; i++){  // loops through array to see where to place coin
-        if(array[clicked][i] === ''){
-            array[clicked][i] = "1";
-            $(cell[i]).addClass( "player1" );
-            return;
+    for (var cp = currentPlayer; cp < 3;) {
+        for (var i = 0; i < array[clicked].length; i++) {  // loops through array to see where to place coin
+            if (array[clicked][i] === '') {
+                if (cp === 0) {
+                    array[clicked][i] = "1";
+                    $(cell[i]).addClass("player1");
+                    currentPlayer++;
+                    return;
+                } else if (cp === 1) {
+                    array[clicked][i] = "2";
+                    $(cell[i]).addClass("player2");
+                    currentPlayer++;
+                    return;
+                } else if (cp === 2) {
+                    array[clicked][i] = "3";
+                    $(cell[i]).addClass("player3");
+                    currentPlayer = 0;
+                    return;
+                }
+                console.log(array[clicked]);
+            }
         }
-            console.log(array[clicked]);
+        // each time colClicked runs, increment player variable to switch players
     }
-
-
-    // switch players
-
 }
-
-
-
 
 
 // var checkCol = $("[class = xClicked]");
