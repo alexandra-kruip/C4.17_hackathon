@@ -97,7 +97,6 @@ function randomize () {  // randomize columns when the three player colors line 
 function MatchedFour(){
 
 }
-
 //Jinwoo's longlong win condition
 function winCondition(){
     winCount = 0;
@@ -118,6 +117,7 @@ function winCondition(){
                 }
             }
             if (winCount === 4){
+                MatchedFour();
                 console.log('On 1 you won! :' + 'x:' + x + " y:" + y );
             }
             //for side on dom// down on array
@@ -147,6 +147,7 @@ function winCondition(){
                 }
             }
             if (winCount === 4){
+                MatchedFour();
                 console.log('on 2 you won! :'+ 'x:' + x + " y:" + y );
             }
             // for rightUp(leftDown) on dom // downRight(upLeft) on array
@@ -175,6 +176,7 @@ function winCondition(){
                 }
             }
             if (winCount === 4){
+                MatchedFour();
                 console.log('on 3 you won! :' + 'x:' + x + " y:" + y);
             }
             //for rightDown(leftUP) on dom // downLeft(upRight) on array
@@ -202,6 +204,7 @@ function winCondition(){
                 }
             }
             if (winCount === 4){
+                MatchedFour();
                 console.log('on 4 you won! :' + 'x:' + x + " y:" + y);
             }
         }
