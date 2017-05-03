@@ -87,17 +87,16 @@ body{
     margin-bottom: 2vh;
     padding-bottom: 4vh;
 }
-
 img{
     /*align-content: center;*/
     position: absolute;
     right: 6vw;
+
     border: 1px solid white;
 }
 .active {
     border: 3px solid red;
 }
-
 #leftBar{
     margin: 0;
     padding: 0;
