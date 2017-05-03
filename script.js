@@ -8,11 +8,12 @@ var array = [
     ['','','','','','','']
 
 ]; // array = outer array of columns
-
+var currentPlayer = 0;
 
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
+    $("#reset").click(resetClicked)
 });
 
 
@@ -26,27 +27,62 @@ function createBoard () {    //dynamically creates our game board
         $('#gameArea').append(outerDiv);
     }
 }
-// function selectingCol(){
-// }
+
 function colClicked () {
     var clicked = $(this).attr("keyValue");
-    var cell = $(this).children().attr("cell");
+    var cell = $(this).children("div.innerDiv");
 
-    $(".innerDiv").addClass('player1');
-
-    for (var i = 0; i < array[clicked].length; i++){  // loops through array to see where to place coin
-        if(array[clicked][i] === ''){
-            array[clicked][i] = "1";
-            return;
+    for (var cp = currentPlayer; cp < 3;) {
+        for (var i = 0; i < array[clicked].length; i++) {  // loops through array to see where to place coin
+            if (array[clicked][i] === '') {
+                if (cp === 0) {
+                    array[clicked][i] = "1";
+                    $(cell[i]).addClass("player1");
+                    currentPlayer++;
+                    return;
+                } else if (cp === 1) {
+                    array[clicked][i] = "2";
+                    $(cell[i]).addClass("player2");
+                    currentPlayer++;
+                    return;
+                } else if (cp === 2) {
+                    array[clicked][i] = "3";
+                    $(cell[i]).addClass("player3");
+                    currentPlayer = 0;
+                    return;
+                }
+                console.log(array[clicked]);
+            }
         }
-        console.log(array[clicked]);
+        // each time colClicked runs, increment player variable to switch players
     }
-
-
-    // switch players
-
 }
 
+function resetClicked(){
+
+    currentPlayer = 0;
+    $(".col").children().removeClass("player1");
+    $(".col").children().removeClass("player2");
+    $(".col").children().removeClass("player3");
+    array = [
+        ['','','','','','',''],     //nested arrays with cells for our columns
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','','']
+
+    ];
+    console.log("reset running");
+}
+function randomize () {  // randomize columns when the three player colors line up
+    var parent = $("#gameArea");
+    var cells = parent.children();
+    while (cells.length) {
+        parent.append(cells.splice(Math.floor(Math.random() * cells.length), 1)[0]);
+    }
+}
 
 
 

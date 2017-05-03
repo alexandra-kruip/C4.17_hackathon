@@ -9,26 +9,24 @@ body{
 }
 .leftSideBar {
     margin-right: 10%;
-     display: inline-block;
-     width: 20vw;
-     height: 70vh;
-     border: solid 2px black;
+    display: inline-block;
+    width: 20vw;
+    height: 70vh;
+    border: solid 2px black;
     position: absolute;
     top: 25%;
- }
+}
 #gameArea{
-    height: 40vw;
+    height: 60vw;
     width: 70vh;
     background-color: dodgerblue;
     border: solid 2px black;
     transform: rotate(-90deg);
     position: absolute;
-    left: 30%;
-    top: 16%;
+    right: 30%;
+    top: -5%;
     display: inline-block;
-
 }
-
 #header{
     height: 20vh;
     width: 97vw;
@@ -38,14 +36,14 @@ body{
     font-size: 6em;
 }
 .rightSideBar{
-     display: inline-block;
-     width: 25vw;
-     height: 70vh;
-     border: solid 2px black;
-     position: absolute;
-     top: 25%;
-     right: 3%;
- }
+    display: inline-block;
+    width: 25vw;
+    height: 70vh;
+    border: solid 2px black;
+    position: absolute;
+    top: 25%;
+    right: 3%;
+}
 .innerDiv {
     width: 15%;
     box-sizing: border-box;
@@ -61,27 +59,80 @@ body{
 .col0 , .col1 , .col2 , .col3 , .col4 , .col5 , .col6{
     height:14%
 }
-.player1 {
-    background-color: red;
-}
+
 .playerSelect{
     list-style-type: none;
     width: 100%;
-    height: 33.3%;
     font-size: 7em;
     text-align: center;
-
+    height: 30%;
+    margin-bottom: 2vh;
+    padding-bottom: 4vh;
 }
 .p1{
     background-color: red;
+
 }
 .p2{
     background-color: blue;
 }
 .p3{
-    background-color: yellow;
+    background-color: green;
+
 }
 #leftBar{
     margin: 0;
     padding: 0;
+    height: 75%;
+}
+
+.player1 {
+    background-color: red;
+    animation-name: bounceInRight;
+    animation-duration: 2s;
+}
+.player2 {
+    background-color: blue;
+    animation-name: bounceInRight;
+    animation-duration: 2s;
+}
+.player3 {
+    background-color: green;
+    animation-name: bounceInRight;
+    animation-duration: 3s;
+}
+#reset{
+    position: relative;
+    top: 12vh;
+    left: 5vw;
+    background-color: yellow;
+    width: 50%;
+}
+button:focus {outline:0;}
+@keyframes bounceInRight {
+    from, 60%, 75%, 90%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    from {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        transform: translate3d(10px, 0, 0);
+    }
+
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    to {
+        transform: none;
+    }
 }
