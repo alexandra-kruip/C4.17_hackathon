@@ -62,7 +62,7 @@ function resetClicked(){
     $(".col").children().removeClass("player1");
     $(".col").children().removeClass("player2");
     $(".col").children().removeClass("player3");
-    array = [
+    clickedArr = [
         ['','','','','','',''],     //nested arrays with cells for our columns
         ['','','','','','',''],
         ['','','','','','',''],

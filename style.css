@@ -25,15 +25,15 @@ body{
     position: absolute;
     top: 25%;
 }
-#gameArea{
-    height: 40vw;
-    width: 40vw;
+#gameArea {
+    height: 48vw;
+    width: 32vw;
     border: solid 2px black;
     border-radius: 1vh;
     transform: rotate(-90deg);
     position: absolute;
     right: 20%;
-    top:  1%;
+    top: 3%;
     display: inline-block;
 }
 #header{
