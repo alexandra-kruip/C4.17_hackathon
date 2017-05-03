@@ -25,7 +25,7 @@ body{
     width: 70vh;
     background-color: black;
     border: solid 2px black;
-    borde-radius: 1vh;
+    border-radius: 1vh;
     transform: rotate(-90deg);
     position: absolute;
     right: 30%;
@@ -35,6 +35,7 @@ body{
 #header{
     height: 20vh;
     width: 97vw;
+    border: solid 2px black;
     position: relative;
     text-align: center;
     font-size: 6em;
@@ -74,9 +75,30 @@ body{
 }
 .p1{
     background-color: red;
+
 }
 .p2{
     background-color: blue;
+}
+.p3{
+    background-color: green;
+
+}
+#leftBar{
+    margin: 0;
+    padding: 0;
+    height: 75%;
+}
+
+.player1 {
+    background-color: red;
+    animation-name: bounceInRight;
+    animation-duration: 2s;
+}
+.player2 {
+    background-color: blue;
+    animation-name: bounceInRight;
+    animation-duration: 2s;
 }
 .p3{
     background-color: green;
@@ -96,6 +118,7 @@ body{
     animation-name: bounceInRight;
     animation-duration: 2s;
 }
+
 .player3 {
     background-color: green;
     animation-name: bounceInRight;
@@ -108,6 +131,7 @@ body{
     background-color: yellow;
     width: 50%;
 }
+
 button:focus {
     outline:0;
 }
@@ -130,6 +154,7 @@ button:focus {
     90% {
         transform: translate3d(-5px, 0, 0);
     }
+
     to {
         transform: none;
     }

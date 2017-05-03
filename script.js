@@ -13,6 +13,7 @@ var currentPlayer = 0;
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
+    $("#reset").click(resetClicked)
 });
 
 
@@ -56,8 +57,24 @@ function colClicked () {
         // each time colClicked runs, increment player variable to switch players
     }
 }
+function resetClicked(){
+    currentPlayer = 0;
+    $(".col").children().removeClass("player1");
+    $(".col").children().removeClass("player2");
+    $(".col").children().removeClass("player3");
+    array = [
+        ['','','','','','',''],     //nested arrays with cells for our columns
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','','']
 
 
+    ];
+    console.log("reset running");
+}
 function randomize () {  // randomize columns when the three player colors line up
     var parent = $("#gameArea");
     var cells = parent.children();
@@ -65,6 +82,7 @@ function randomize () {  // randomize columns when the three player colors line 
         parent.append(cells.splice(Math.floor(Math.random() * cells.length), 1)[0]);
     }
 }
+
 
 
 
