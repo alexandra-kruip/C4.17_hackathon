@@ -12,6 +12,7 @@ var currentPlayer = 0;
 
 $(document).ready(function() {
     createBoard();
+    $('.col').mouseover(colHover);
     $('.col').click(colClicked);
     $("#reset").click(resetClicked)
     $(".p1 img").addClass("active1");
@@ -27,6 +28,16 @@ function createBoard () {    //dynamically creates our game board
         }
         $('#gameArea').append(outerDiv);
     }
+}
+
+function colHover(){
+    $(".col").mouseover(function(){
+        $(this).css("background-color", "yellow");
+
+    });
+    $(".col").mouseout(function(){
+        $(this).css("background-color", "");
+    })
 }
 
 function colClicked () {

@@ -2,9 +2,6 @@
     font-family: pokemonSolid;
     src: url(pokemonSolid.ttf);
 }
-img{
-    display: inline;
-}
 body{
     font-family: pokemonSolid;
     letter-spacing: 5px;
@@ -33,7 +30,7 @@ body{
 #gameArea {
     height: 48vw;
     width: 32vw;
-    border: solid 2px black;
+    /*border: solid 2px black;*/
     border-radius: 1vh;
     transform: rotate(-90deg);
     position: absolute;
@@ -45,7 +42,6 @@ body{
     height: 20vh;
     width: 97vw;
     position: relative;
-    background-color: grey;
     text-align: center;
     font-size: 5em;
     line-height: 11vh;
@@ -63,6 +59,7 @@ body{
 .innerDiv {
     width: 15%;
     box-sizing: border-box;
+    box-shadow: 3px 3px #320000;
     border: 1px solid black;
     height: 100%;
     display: inline-block;
@@ -100,9 +97,9 @@ body{
 }
 
 img{
-    /*align-content: center;*/
     position: absolute;
     right: 6vw;
+    display: inline;
 }
 #leftBar{
     margin: 0;
