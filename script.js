@@ -20,7 +20,7 @@ function createBoard () {    //dynamically creates our game board
     for(var x = 0; x <= 6 ; x++){
         var outerDiv = $('<div>').addClass('col' + x).addClass('col').attr('keyValue', x);
         for(var y = 0; y<=5; y++){
-            var innerDiv = $('<div>').addClass("innerDiv");
+            var innerDiv = $('<div>').addClass("innerDiv").attr('cell', y);
             outerDiv.append(innerDiv);
         }
         $('#gameArea').append(outerDiv);
@@ -30,13 +30,16 @@ function createBoard () {    //dynamically creates our game board
 // }
 function colClicked () {
     var clicked = $(this).attr("keyValue");
+    var cell = $(this).children().attr("cell");
+
+    $(".innerDiv").addClass('player1');
 
     for (var i = 0; i < array[clicked].length; i++){  // loops through array to see where to place coin
         if(array[clicked][i] === ''){
             array[clicked][i] = "1";
             return;
         }
-        console.log(array[clicked]);
+            console.log(array[clicked]);
     }
 
 
@@ -65,4 +68,4 @@ function colClicked () {
 // take last available spot (y = 5)
 //
 // $(openSpot).addClass(‘takenPlayer3’);
-// }
+
