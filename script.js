@@ -1,4 +1,4 @@
-var array = [
+var clickedArr = [
     ['','','','','','',''],     //nested arrays with cells for our columns
     ['','','','','','',''],
     ['','','','','','',''],
@@ -32,25 +32,25 @@ function colClicked () {
     var cell = $(this).children("div.innerDiv");
 
     for (var cp = currentPlayer; cp < 3;) {
-        for (var i = 0; i < array[clicked].length; i++) {  // loops through array to see where to place coin
-            if (array[clicked][i] === '') {
+        for (var i = 0; i < clickedArr[clicked].length; i++) {  // loops through array to see where to place coin
+            if (clickedArr[clicked][i] === '') {
                 if (cp === 0) {
-                    array[clicked][i] = "1";
+                    clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
                     currentPlayer++;
                     return;
                 } else if (cp === 1) {
-                    array[clicked][i] = "2";
+                    clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
                     currentPlayer++;
                     return;
                 } else if (cp === 2) {
-                    array[clicked][i] = "3";
+                    clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
                     currentPlayer = 0;
                     return;
                 }
-                console.log(array[clicked]);
+                console.log(clickedArr[clicked]);
             }
         }
         // each time colClicked runs, increment player variable to switch players

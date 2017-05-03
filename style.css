@@ -1,6 +1,10 @@
 body{
-    width: 100%;
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
     height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 .gameDiv{
     position: relative;
@@ -17,20 +21,20 @@ body{
     top: 25%;
 }
 #gameArea{
-    height: 40vw;
+    height: 60vw;
     width: 70vh;
-    background-color: dodgerblue;
+    background-color: black;
     border: solid 2px black;
+    borde-radius: 1vh;
     transform: rotate(-90deg);
     position: absolute;
-    left: 30%;
-    top: 16%;
+    right: 30%;
+    top: -5%;
     display: inline-block;
 }
 #header{
     height: 20vh;
     width: 97vw;
-    border: solid 2px black;
     position: relative;
     text-align: center;
     font-size: 6em;
@@ -59,13 +63,14 @@ body{
 .col0 , .col1 , .col2 , .col3 , .col4 , .col5 , .col6{
     height:14%
 }
-
 .playerSelect{
     list-style-type: none;
     width: 100%;
-    height: 33.3%;
     font-size: 7em;
     text-align: center;
+    height: 30%;
+    margin-bottom: 2vh;
+    padding-bottom: 4vh;
 }
 .p1{
     background-color: red;
@@ -74,13 +79,13 @@ body{
     background-color: blue;
 }
 .p3{
-    background-color: yellow;
+    background-color: green;
 }
 #leftBar{
     margin: 0;
     padding: 0;
+    height: 75%;
 }
-
 .player1 {
     background-color: red;
     animation-name: bounceInRight;
@@ -92,34 +97,39 @@ body{
     animation-duration: 2s;
 }
 .player3 {
-    background-color: yellow;
+    background-color: green;
     animation-name: bounceInRight;
     animation-duration: 3s;
+}
+#reset{
+    position: relative;
+    top: 12vh;
+    left: 5vw;
+    background-color: yellow;
+    width: 50%;
+}
+button:focus {
+    outline:0;
 }
 
 @keyframes bounceInRight {
     from, 60%, 75%, 90%, to {
         animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     }
-
     from {
         opacity: 0;
         transform: translate3d(3000px, 0, 0);
     }
-
     60% {
         opacity: 1;
         transform: translate3d(-25px, 0, 0);
     }
-
     75% {
         transform: translate3d(10px, 0, 0);
     }
-
     90% {
         transform: translate3d(-5px, 0, 0);
     }
-
     to {
         transform: none;
     }
