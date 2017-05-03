@@ -1,3 +1,4 @@
+
 var clickedArr = [
     ['','','','','','',''],     //nested arrays with cells for our columns
     ['','','','','','',''],
@@ -9,12 +10,14 @@ var clickedArr = [
 
 ]; // array = outer array of columns
 var currentPlayer = 0;
-
+var winCount = 0;
+var xValue = null;
+var yValue = null;
 $(document).ready(function() {
     createBoard();
     $('.col').mouseover(colHover);
     $('.col').click(colClicked);
-    $("#reset").click(resetClicked)
+    $("#reset").click(resetClicked);
     $(".p1 img").addClass("active1");
 });
 
@@ -46,11 +49,16 @@ function colClicked () {
 
     for (var cp = currentPlayer; cp < 3;) {
         for (var i = 0; i < clickedArr[clicked].length; i++) {  // loops through array to see where to place coin
+             xValue = parseInt(clicked);
+             yValue = i;
             if (clickedArr[clicked][i] === '') {
                 if (cp === 0) {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
                     currentPlayer++;
+
+                    winCondition();
+
                     $(".p2 img").addClass("active2");
                     $(".p1 img").removeClass("active1");
 
@@ -59,15 +67,23 @@ function colClicked () {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
                     currentPlayer++;
+
+                    winCondition();
+
                     $(".p3 img").addClass("active3");
                     $(".p2 img").removeClass("active2");
+
                     return;
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
                     currentPlayer = 0;
+
+                    winCondition();
+
                     $(".p1 img").addClass("active1");
                     $(".p3 img").removeClass("active3");
+
                     return;
                 }
                 console.log(clickedArr[clicked]);
@@ -104,23 +120,120 @@ function randomize () {  // randomize columns when the three player colors line 
 
 
 
+//jinwoo Part
+function MatchedFour(){
 
+}
+//Jinwoo's longlong win condition
+function winCondition(){
+    winCount = 0;
+    for (var x = 0; x < clickedArr.length; x++){
+        for(var y = 0; y <= clickedArr[x].length; y++){
+            //for down on dom //side on array
+            winCount = 1;
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue][yValue-1] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue][yValue -2] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue][yValue -3] == clickedArr[xValue][yValue]) {
+                            winCount++;
 
-// var checkCol = $("[class = xClicked]");
-// var start = $(this).attr('x', parseInt(xClicked)).attr('y', 0);
-// console.log(xClicked);
-// var xClicked = null;
-// console.log(xClicked);
-// var openSpot =
-// div with attr x is clicked, loop through all other divs with a class of x
-// check if each div has class of empty(null) or taken
-// if taken, go back one div and add taken class
-// if not taken continue until y = 5
-// take last available spot (y = 5)    // if div with attr x is clicked, loop through all other divs with a class of x
-// check if each div has class of empty(null) or taken
-// if taken, go back one div and add taken class
-// if not taken continue until y = 5
-// take last available spot (y = 5)
-//
-// $(openSpot).addClass(‘takenPlayer3’);
+                        }
+                    }
+                }
+            }
+            if (winCount === 4){
+                MatchedFour();
+                console.log('On 1 you won! :' + 'x:' + x + " y:" + y );
+            }
+            //for side on dom// down on array
+            winCount = 1;
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue +2] && clickedArr[xValue + 2][yValue] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue + 3] && clickedArr[xValue + 3][yValue] == clickedArr[xValue][yValue]) {
+                            winCount++;
 
+                        }
+                    }
+                }
+            }
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue - 2] && clickedArr[xValue - 2][yValue] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue - 3] && clickedArr[xValue - 3][yValue] == clickedArr[xValue][yValue]) {
+                            winCount++;
+
+                        }
+                    }
+                }
+            }
+            if (winCount === 4){
+                MatchedFour();
+                console.log('on 2 you won! :'+ 'x:' + x + " y:" + y );
+            }
+            // for rightUp(leftDown) on dom // downRight(upLeft) on array
+            winCount = 1;
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue + 1] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue + 2] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue + 3] && clickedArr[xValue + 3][yValue + 3] == clickedArr[xValue][yValue]) {
+                            winCount++;
+                        }
+                    }
+                }
+            }
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue - 1] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue - 2] && clickedArr[xValue - 2][y - 2] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue - 3] && clickedArr[xValue - 3][yValue - 3] == clickedArr[xValue][yValue]) {
+                            winCount++;
+
+                        }
+                    }
+                }
+            }
+            if (winCount === 4){
+                MatchedFour();
+                console.log('on 3 you won! :' + 'x:' + x + " y:" + y);
+            }
+            //for rightDown(leftUP) on dom // downLeft(upRight) on array
+            winCount = 1;
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue - 1] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue - 2] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue + 3] && clickedArr[xValue + 3][yValue - 3] == clickedArr[xValue][yValue]) {
+                            winCount++;
+                        }
+                    }
+                }
+            }
+            if(clickedArr[xValue][yValue] == currentPlayer) {
+                if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue + 1] == clickedArr[xValue][yValue]) {
+                    winCount++;
+                    if (clickedArr[xValue - 2] && clickedArr[xValue - 2][yValue + 2] == clickedArr[xValue][yValue]) {
+                        winCount++;
+                        if (clickedArr[xValue - 3] && clickedArr[xValue - 3][yValue + 3] == clickedArr[xValue][yValue]) {
+                            winCount++;
+                        }
+                    }
+                }
+            }
+            if (winCount === 4){
+                MatchedFour();
+                console.log('on 4 you won! :' + 'x:' + x + " y:" + y);
+            }
+        }
+    }
+}
