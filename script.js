@@ -6,17 +6,14 @@ var clickedArr = [
     ['','','','','','',''],
     ['','','','','','',''],
     ['','','','','','','']
-
 ]; // array = outer array of columns
 var currentPlayer = 0;
-
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
-    $("#reset").click(resetClicked);
+    $("#reset").click(resetClicked)
+    $(".p1").addClass("active1");
 });
-
-
 function createBoard () {    //dynamically creates our game board
     for(var x = 0; x <= 6 ; x++){
         var outerDiv = $('<div>').addClass('col' + x).addClass('col').attr('keyValue', x);
@@ -25,37 +22,34 @@ function createBoard () {    //dynamically creates our game board
             outerDiv.append(innerDiv);
         }
         $('#gameArea').append(outerDiv);
-
     }
 }
-
 function colClicked () {
     var clicked = $(this).attr("keyValue");
     var cell = $(this).children("div.innerDiv");
-
     for (var cp = currentPlayer; cp < 3;) {
         for (var i = 0; i < clickedArr[clicked].length; i++) {  // loops through array to see where to place coin
             if (clickedArr[clicked][i] === '') {
                 if (cp === 0) {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
-                    console.log(cell);
                     currentPlayer++;
-                    $('.p1').removeClass("active");
+                    $(".p2").addClass("active2");
+                    $(".p1").removeClass("active1");
                     return;
                 } else if (cp === 1) {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
-                    $('.p2').addClass("active");
                     currentPlayer++;
-                    $('.p2').removeClass("active");
+                    $(".p3").addClass("active3");
+                    $(".p2").removeClass("active2");
                     return;
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
-                    $('.p3').addClass("active");
                     currentPlayer = 0;
-                    $('.p3').removeClass("active");
+                    $(".p1").addClass("active1");
+                    $(".p3").removeClass("active3");
                     return;
                 }
                 console.log(clickedArr[clicked]);
@@ -77,8 +71,6 @@ function resetClicked(){
         ['','','','','','',''],
         ['','','','','','',''],
         ['','','','','','','']
-
-
     ];
     console.log("reset running");
 }
@@ -91,24 +83,20 @@ function randomize () {  // randomize columns when the three player colors line 
 }
 
 
-
-// if(this.player1 === false){
-//     spongebob_win();
-//     $('.youare_p').hide();
-//     $('.youare_s').show();
-//     $('.slot').hide();
-//     $('.slot_container').append("<div class='you_won'><img class='spongebob_won' src='img/spongebob_wins.gif'></div>");
-//     this.player1_score++;
-//     this.display_stats();
-//     this.winner_found = true;
-// }else{
-//     patrick_win();
-//     $('.youare_p').show();
-//     $('.youare_s').hide();
-//     $('.slot').hide();
-//     $('.slot_container').append("<div class='you_won'><img class='patrick_won' src='img/patrick_wins.gif'></div>");
-//     this.player2_score++;
-//     this.display_stats();
-//     this.winner_found = true;
-// }
-// };
+// var checkCol = $("[class = xClicked]");
+// var start = $(this).attr('x', parseInt(xClicked)).attr('y', 0);
+// console.log(xClicked);
+// var xClicked = null;
+// console.log(xClicked);
+// var openSpot =
+// div with attr x is clicked, loop through all other divs with a class of x
+// check if each div has class of empty(null) or taken
+// if taken, go back one div and add taken class
+// if not taken continue until y = 5
+// take last available spot (y = 5)    // if div with attr x is clicked, loop through all other divs with a class of x
+// check if each div has class of empty(null) or taken
+// if taken, go back one div and add taken class
+// if not taken continue until y = 5
+// take last available spot (y = 5)
+//
+// $(openSpot).addClass(‘takenPlayer3’);
