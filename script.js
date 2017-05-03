@@ -14,6 +14,7 @@ $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
     $("#reset").click(resetClicked)
+    $(".p1").addClass("active");
 });
 
 
@@ -39,16 +40,23 @@ function colClicked () {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
                     currentPlayer++;
+                    $(".p2").addClass("active");
+                    $(".p1").removeClass("active");
+
                     return;
                 } else if (cp === 1) {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
                     currentPlayer++;
+                    $(".p3").addClass("active");
+                    $(".p2").removeClass("active");
                     return;
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
                     currentPlayer = 0;
+                    $(".p1").addClass("active");
+                    $(".p3").removeClass("active");
                     return;
                 }
                 console.log(clickedArr[clicked]);
