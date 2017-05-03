@@ -37,6 +37,7 @@ function colClicked () {
                 if (cp === 0) {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
+                    console.log(cell);
                     currentPlayer++;
                     return;
                 } else if (cp === 1) {

@@ -21,15 +21,28 @@ body{
     top: 25%;
 }
 #gameArea{
-    height: 60vw;
-    width: 70vh;
-    background-color: black;
+    height: 70vw;
+    width: 70vw;
+    background: yellow;
     border: solid 2px black;
-    borde-radius: 1vh;
+    border-radius: 1vh;
     transform: rotate(-90deg);
-    position: absolute;
-    right: 30%;
-    top: -5%;
+    display: inline-block;
+    position: relative;
+}
+.innerDiv {
+    width: 15%;
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    background-image: url("images/cell.png");
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    margin: 1%;
     display: inline-block;
 }
 #header{
@@ -48,18 +61,7 @@ body{
     top: 25%;
     right: 3%;
 }
-.innerDiv {
-    width: 15%;
-    box-sizing: border-box;
-    border: 1px solid black;
-    height: 100%;
-    display: inline-block;
-    border-radius: 100%;
-    text-align: center;
-    background-color: mintcream;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
+
 .col0 , .col1 , .col2 , .col3 , .col4 , .col5 , .col6{
     height:14%
 }
