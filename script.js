@@ -13,7 +13,7 @@ var currentPlayer = 0;
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
-    $("#reset").click(resetClicked)
+    $("#reset").click(resetClicked);
 });
 
 
@@ -25,6 +25,7 @@ function createBoard () {    //dynamically creates our game board
             outerDiv.append(innerDiv);
         }
         $('#gameArea').append(outerDiv);
+
     }
 }
 
@@ -40,16 +41,21 @@ function colClicked () {
                     $(cell[i]).addClass("player1");
                     console.log(cell);
                     currentPlayer++;
+                    $('.p1').removeClass("active");
                     return;
                 } else if (cp === 1) {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
+                    $('.p2').addClass("active");
                     currentPlayer++;
+                    $('.p2').removeClass("active");
                     return;
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
+                    $('.p3').addClass("active");
                     currentPlayer = 0;
+                    $('.p3').removeClass("active");
                     return;
                 }
                 console.log(clickedArr[clicked]);
@@ -86,23 +92,23 @@ function randomize () {  // randomize columns when the three player colors line 
 
 
 
-
-
-// var checkCol = $("[class = xClicked]");
-// var start = $(this).attr('x', parseInt(xClicked)).attr('y', 0);
-// console.log(xClicked);
-// var xClicked = null;
-// console.log(xClicked);
-// var openSpot =
-// div with attr x is clicked, loop through all other divs with a class of x
-// check if each div has class of empty(null) or taken
-// if taken, go back one div and add taken class
-// if not taken continue until y = 5
-// take last available spot (y = 5)    // if div with attr x is clicked, loop through all other divs with a class of x
-// check if each div has class of empty(null) or taken
-// if taken, go back one div and add taken class
-// if not taken continue until y = 5
-// take last available spot (y = 5)
-//
-// $(openSpot).addClass(‘takenPlayer3’);
-
+// if(this.player1 === false){
+//     spongebob_win();
+//     $('.youare_p').hide();
+//     $('.youare_s').show();
+//     $('.slot').hide();
+//     $('.slot_container').append("<div class='you_won'><img class='spongebob_won' src='img/spongebob_wins.gif'></div>");
+//     this.player1_score++;
+//     this.display_stats();
+//     this.winner_found = true;
+// }else{
+//     patrick_win();
+//     $('.youare_p').show();
+//     $('.youare_s').hide();
+//     $('.slot').hide();
+//     $('.slot_container').append("<div class='you_won'><img class='patrick_won' src='img/patrick_wins.gif'></div>");
+//     this.player2_score++;
+//     this.display_stats();
+//     this.winner_found = true;
+// }
+// };

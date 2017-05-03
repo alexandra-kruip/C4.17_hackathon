@@ -1,9 +1,14 @@
 @font-face {
-    font-family: pokemonHollow;
-    src: url(pokemonHollow.ttf);
+    font-family: pokemonSolid;
+    src: url(pokemonSolid.ttf);
+}
+img{
+    display: inline;
 }
 body{
-    font-family: pokemonHollow;
+    font-family: pokemonSolid;
+    letter-spacing: 5px;
+    text-shadow: 1px 5px black, 1px 5px black, 1px 5px black, 1px -5px black;
     background-image: url("images/background.jpg ");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
@@ -21,13 +26,13 @@ body{
     display: inline-block;
     width: 20vw;
     height: 70vh;
-    border: solid 2px black;
+    /*border: solid 2px black;*/
     position: absolute;
     top: 25%;
 }
 #gameArea {
-    height: 60vw;
-    width: 60vw;
+    height:50vw;
+    width: 50vw;
     border: solid 2px black;
     border-radius: 1vh;
     transform: rotate(-90deg);
@@ -40,10 +45,10 @@ body{
 #header{
     height: 20vh;
     width: 97vw;
-    border: solid 2px black;
+    border-bottom: solid 2px black;
     position: relative;
     text-align: center;
-    font-size: 6em;
+    font-size: 5em;
     line-height: 11vh;
     color: yellow;
 }
@@ -68,6 +73,7 @@ body{
     background-color: mintcream;
     padding-left: 10px;
     padding-bottom: 10px;
+    z-index: -1;
 }
 .col0 , .col1 , .col2 , .col3 , .col4 , .col5 , .col6{
     height:14%
@@ -81,36 +87,17 @@ body{
     margin-bottom: 2vh;
     padding-bottom: 4vh;
 }
-.p1{
-    background-color: red;
 
+img{
+    /*align-content: center;*/
+    position: absolute;
+    right: 6vw;
+    border: 1px solid white;
 }
-.p2{
-    background-color: blue;
-}
-.p3{
-    background-color: green;
-
-}
-#leftBar{
-    margin: 0;
-    padding: 0;
-    height: 75%;
+.active {
+    border: 3px solid red;
 }
 
-.player1 {
-    background-color: red;
-    animation-name: bounceInRight;
-    animation-duration: 2s;
-}
-.player2 {
-    background-color: blue;
-    animation-name: bounceInRight;
-    animation-duration: 2s;
-}
-.p3{
-    background-color: green;
-}
 #leftBar{
     margin: 0;
     padding: 0;
@@ -143,6 +130,8 @@ body{
 button:focus {
     outline:0;
 }
+
+
 
 @keyframes bounceInRight {
     from, 60%, 75%, 90%, to {
