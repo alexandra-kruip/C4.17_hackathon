@@ -1,15 +1,24 @@
-var xArray = []; // x = big array
-var yArray = []; // y = small array
+var array = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+]; // x = big array
+
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
 });
-console.log(xArray);
+
+
 function createBoard () {
 
-    for(var x = 0; x <= 5 ; x++){
-        var outerDiv = $('<div>').addClass('col' + x).addClass('col');
-        for(var y = 0; y<=6; y++){
+    for(var x = 0; x <= 6 ; x++){
+        var outerDiv = $('<div>').addClass('col' + x).addClass('col').attr('keyValue', x);
+        for(var y = 0; y<=5; y++){
             var innerDiv = $('<div>').addClass("innerDiv");
                 // .text(x + " , " + y).addClass('col' + y);
             outerDiv.append(innerDiv);
@@ -20,12 +29,21 @@ function createBoard () {
 // function selectingCol(){
 // }
 function colClicked () {
-    console.log($(this));
-    // var xClicked = $(this).attr("class");
-    // var checkCol = $("[class = xClicked]");
-    // var start = $(this).attr('x', parseInt(xClicked)).attr('y', 0);
-    // console.log(xClicked);
+    var clickedCol = $(this).attr("keyValue");
+    array[clickedCol].push("1");
+
+    console.log(array);
+
+
 }
+
+
+
+
+
+// var checkCol = $("[class = xClicked]");
+// var start = $(this).attr('x', parseInt(xClicked)).attr('y', 0);
+// console.log(xClicked);
 // var xClicked = null;
 // console.log(xClicked);
 // var openSpot =
