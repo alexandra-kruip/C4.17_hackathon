@@ -29,23 +29,18 @@ function createBoard () {    //dynamically creates our game board
 // function selectingCol(){
 // }
 function colClicked () {
-    var clickedCol = $(this).attr("keyValue");
+    var clicked = $(this).attr("keyValue");
 
-
-    for (var i = 0; i < array[clickedCol].length; i++){  // loops through array to see where to place coin
-        if(array[clickedCol][i] === ''){
-            array[clickedCol][i] = "1";
+    for (var i = 0; i < array[clicked].length; i++){  // loops through array to see where to place coin
+        if(array[clicked][i] === ''){
+            array[clicked][i] = "1";
             return;
         }
-        console.log(array[clickedCol]);
-
+        console.log(array[clicked]);
     }
 
-    // $('this:nth-child(0)').addClass('player1');
 
-
-
-
+    // switch players
 
 }
 
