@@ -1,21 +1,84 @@
-#gameArea {
+body{
+    width: 100%;
+    height: 100%;
+}
+.gameDiv{
+    position: relative;
+    width: 100vw;
     height: 100vh;
-    width: 100vh;
-    background-color: seagreen;
+}
+.leftSideBar {
+    margin-right: 10%;
+    display: inline-block;
+    width: 20vw;
+    height: 70vh;
+    border: solid 2px black;
+    position: absolute;
+    top: 25%;
+}
+#gameArea{
+    height: 40vw;
+    width: 70vh;
+    background-color: dodgerblue;
+    border: solid 2px black;
     transform: rotate(-90deg);
+    position: absolute;
+    left: 30%;
+    top: 16%;
+    display: inline-block;
+}
+#header{
+    height: 20vh;
+    width: 97vw;
+    border: solid 2px black;
+    position: relative;
+    text-align: center;
+    font-size: 6em;
+}
+.rightSideBar{
+    display: inline-block;
+    width: 25vw;
+    height: 70vh;
+    border: solid 2px black;
+    position: absolute;
+    top: 25%;
+    right: 3%;
 }
 .innerDiv {
-    width: 14%;
+    width: 15%;
     box-sizing: border-box;
     border: 1px solid black;
     height: 100%;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: 100%;
     text-align: center;
-    background-color: white;
+    background-color: mintcream;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 .col0 , .col1 , .col2 , .col3 , .col4 , .col5 , .col6{
     height:14%
+}
+
+.playerSelect{
+    list-style-type: none;
+    width: 100%;
+    height: 33.3%;
+    font-size: 7em;
+    text-align: center;
+}
+.p1{
+    background-color: red;
+}
+.p2{
+    background-color: blue;
+}
+.p3{
+    background-color: yellow;
+}
+#leftBar{
+    margin: 0;
+    padding: 0;
 }
 
 .player1 {
@@ -29,10 +92,10 @@
     animation-duration: 2s;
 }
 .player3 {
-     background-color: yellow;
-     animation-name: bounceInRight;
-     animation-duration: 3s;
- }
+    background-color: yellow;
+    animation-name: bounceInRight;
+    animation-duration: 3s;
+}
 
 @keyframes bounceInRight {
     from, 60%, 75%, 90%, to {

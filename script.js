@@ -26,8 +26,7 @@ function createBoard () {    //dynamically creates our game board
         $('#gameArea').append(outerDiv);
     }
 }
-// function selectingCol(){
-// }
+
 function colClicked () {
     var clicked = $(this).attr("keyValue");
     var cell = $(this).children("div.innerDiv");
@@ -57,6 +56,17 @@ function colClicked () {
         // each time colClicked runs, increment player variable to switch players
     }
 }
+
+
+function randomize () {  // randomize columns when the three player colors line up
+    var parent = $("#gameArea");
+    var cells = parent.children();
+    while (cells.length) {
+        parent.append(cells.splice(Math.floor(Math.random() * cells.length), 1)[0]);
+    }
+}
+
+
 
 
 // var checkCol = $("[class = xClicked]");
