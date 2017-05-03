@@ -16,7 +16,8 @@ var yValue = null;
 $(document).ready(function() {
     createBoard();
     $('.col').click(colClicked);
-    $("#reset").click(resetClicked)
+    $("#reset").click(resetClicked);
+    $(".p1 img").addClass("active1");
 });
 
 
@@ -44,19 +45,34 @@ function colClicked () {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
                     currentPlayer++;
+
                     winCondition();
+
+                    $(".p2 img").addClass("active2");
+                    $(".p1 img").removeClass("active1");
+
                     return;
                 } else if (cp === 1) {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
                     currentPlayer++;
+
                     winCondition();
+
+                    $(".p3 img").addClass("active3");
+                    $(".p2 img").removeClass("active2");
+
                     return;
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
                     currentPlayer = 0;
+
                     winCondition();
+
+                    $(".p1 img").addClass("active1");
+                    $(".p3 img").removeClass("active3");
+
                     return;
                 }
                 console.log(clickedArr[clicked]);
