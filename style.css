@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: pokemonSolid;
     src: url(pokemonSolid.ttf);
@@ -90,9 +91,18 @@ body{
 .p1{
 
 }
-.active{
-    border: red 1px solid;
+.active1{
+    border: red 3px dashed;
 }
+
+.active2{
+    border: blue 3px dashed;
+}
+
+.active3{
+    border: green 3px dashed;
+}
+
 img{
     /*align-content: center;*/
     position: absolute;
@@ -160,3 +170,4 @@ button:focus {
         transform: none;
     }
 }
+
