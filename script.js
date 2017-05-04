@@ -13,6 +13,7 @@ var currentPlayer = 0;
 var winCount = 0;
 var xValue = null;
 var yValue = null;
+var specialCount = 0;
 $(document).ready(function() {
     createBoard();
     $('.col').mouseover(colHover);
@@ -56,7 +57,7 @@ function colClicked () {
                     clickedArr[clicked][i] = "1";
                     $(cell[i]).addClass("player1");
                     currentPlayer++;
-
+                    ThreeDiffColorOne();
                     winCondition();
 
                     $(".p2 img").addClass("active2");
@@ -67,7 +68,7 @@ function colClicked () {
                     clickedArr[clicked][i] = "2";
                     $(cell[i]).addClass("player2");
                     currentPlayer++;
-
+                    ThreeDiffColorTwo();
                     winCondition();
 
                     $(".p3 img").addClass("active3");
@@ -78,6 +79,8 @@ function colClicked () {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
                     currentPlayer++;
+
+                    ThreeDiffColorThree();
                     winCondition();
                     currentPlayer = 0;
 
@@ -118,8 +121,6 @@ function randomize () {  // randomize columns when the three player colors line 
     }
 }
 
-
-
 //jinwoo Part
 function MatchedFour(){
     if(currentPlayer - 1 == 0){
@@ -129,6 +130,7 @@ function MatchedFour(){
     } else {
         $('#myModal3').modal('show');
     }
+    resetClicked();
 }
 
 //Jinwoo's longlong win condition
@@ -151,7 +153,8 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('On 1 you won! :' + 'x:' + x + " y:" + y );
+                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
+                return;
             }
             //for side on dom// down on array
             winCount = 1;
@@ -162,7 +165,6 @@ function winCondition(){
                         winCount++;
                         if (clickedArr[xValue + 3] && clickedArr[xValue + 3][yValue] == clickedArr[xValue][yValue]) {
                             winCount++;
-
                         }
                     }
                 }
@@ -181,7 +183,8 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 2 you won! :'+ 'x:' + x + " y:" + y );
+                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
+                return;
             }
             // for rightUp(leftDown) on dom // downRight(upLeft) on array
             winCount = 1;
@@ -210,7 +213,8 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 3 you won! :' + 'x:' + x + " y:" + y);
+                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
+                return;
             }
             //for rightDown(leftUP) on dom // downLeft(upRight) on array
             winCount = 1;
@@ -238,10 +242,176 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 4 you won! :' + 'x:' + x + " y:" + y);
+                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
+                return;
             }
         }
     }
 }
 
+function ThreeDiffColorOne(){
+    var playerClicked = parseInt(clickedArr[xValue][yValue]);
+    specialCount = 1;
+    if(clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked +1){
+        specialCount++;
+        if(clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked +2){
+            specialCount++;
+        }
+        if(clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked +2){
+            specialCount++;
+        }
+    }
+    if(specialCount === 3){
+        console.log('3diffcolor from red');
+    }
+    specialCount = 1;
+    if(clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked +2){
+        specialCount++;
+        if(clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked +1){
+            specialCount++;
+        }
+        if(clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked +1){
+            specialCount++;
+        }
+    }
+    if(specialCount === 3){
+        console.log('3diffcolor from red');
+    }
+    specialCount = 1;
+    if(clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked +1){
+        specialCount++;
+        if(clickedArr[xValue - 1] && clickedArr[xValue - 2][yValue] == playerClicked +2) {
+            specialCount++;
+        }
+        if( clickedArr[xValue +1] && clickedArr[xValue + 1][yValue] == playerClicked +2){
+            specialCount++;
+        }
+    }
+    if(specialCount === 3){
+        console.log('3diffcolor from red');
+    }
+    specialCount = 1;
+    if(clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked +2){
+        specialCount++;
+        if(clickedArr[xValue - 1] && clickedArr[xValue - 2][yValue] == playerClicked +1) {
+            specialCount++;
+        }
+        if( clickedArr[xValue +1] && clickedArr[xValue + 1][yValue] == playerClicked +1){
+            specialCount++;
+        }
+    }
+    if(specialCount === 3){
+        console.log('3diffcolor from red');
+    }
+}
+function ThreeDiffColorTwo() {
+    var playerClicked = parseInt(clickedArr[xValue][yValue]);
+    specialCount = 1;
+    if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked + 1) {
+        specialCount++;
+        if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from blue');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked - 1) {
+        specialCount++;
+        if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked + 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked + 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from blue');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked + 1) {
+        specialCount++;
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 2][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from blue');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 1) {
+        specialCount++;
+        if (clickedArr[xValue - 2] && clickedArr[xValue - 2][yValue] == playerClicked + 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked + 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from blue');
+    }
+}
+function ThreeDiffColorThree() {
+    var playerClicked = parseInt(clickedArr[xValue][yValue]);
+    specialCount = 1;
+    if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked + 1) {
+        specialCount++;
+        if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from green');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked - 2) {
+        specialCount++;
+        if (clickedArr[xValue + 2] && clickedArr[xValue + 2][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from green');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 1) {
+        specialCount++;
+        if (clickedArr[xValue - 2] && clickedArr[xValue - 2][yValue] == playerClicked - 2) {
+            specialCount++;
+        }
+        if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked - 2) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from green');
+    }
+    specialCount = 1;
+    if (clickedArr[xValue - 1] && clickedArr[xValue - 1][yValue] == playerClicked - 2) {
+        specialCount++;
+        if (clickedArr[xValue - 1] && clickedArr[xValue - 2][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+        if (clickedArr[xValue + 1] && clickedArr[xValue + 1][yValue] == playerClicked - 1) {
+            specialCount++;
+        }
+    }
+    if (specialCount === 3) {
+        console.log('3diffcolor from green');
+    }
+}
 
