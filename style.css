@@ -86,7 +86,7 @@ body{
 
 }
 .active1{
-    border: red 3px dashed;
+    border: orangered 3px dashed;
 }
 
 .active2{
@@ -108,7 +108,7 @@ img{
     height: 75%;
 }
 .player1 {
-    background-color: red;
+    background-color: orangered;
     animation-name: bounceInRight;
     animation-duration: 2s;
 }
