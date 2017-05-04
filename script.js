@@ -15,6 +15,7 @@ var xValue = null;
 var yValue = null;
 $(document).ready(function() {
     createBoard();
+    $('.col').mouseover(colHover);
     $('.col').click(colClicked);
     $("#reset").click(resetClicked);
     $(".p1 img").addClass("active1");
@@ -30,6 +31,16 @@ function createBoard () {    //dynamically creates our game board
         }
         $('#gameArea').append(outerDiv);
     }
+}
+
+function colHover(){
+    $(".col").mouseover(function(){
+        $(this).css("background-color", "yellow");
+
+    });
+    $(".col").mouseout(function(){
+        $(this).css("background-color", "");
+    })
 }
 
 function colClicked () {
@@ -66,9 +77,9 @@ function colClicked () {
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
-                    currentPlayer = 0;
-
+                    currentPlayer++;
                     winCondition();
+                    currentPlayer = 0;
 
                     $(".p1 img").addClass("active1");
                     $(".p3 img").removeClass("active3");
@@ -111,8 +122,15 @@ function randomize () {  // randomize columns when the three player colors line 
 
 //jinwoo Part
 function MatchedFour(){
-
+    if(currentPlayer - 1 == 0){
+        $('#myModal1').modal('show');
+    } else if (currentPlayer - 1 == 1){
+        $('#myModal2').modal('show');
+    } else {
+        $('#myModal3').modal('show');
+    }
 }
+
 //Jinwoo's longlong win condition
 function winCondition(){
     winCount = 0;
@@ -127,7 +145,6 @@ function winCondition(){
                         winCount++;
                         if (clickedArr[xValue][yValue -3] == clickedArr[xValue][yValue]) {
                             winCount++;
-
                         }
                     }
                 }
