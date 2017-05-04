@@ -22,7 +22,6 @@ body{
     display: inline-block;
     width: 20vw;
     height: 70vh;
-    /*border: solid 2px black;*/
     position: absolute;
     top: 25%;
 }
@@ -184,17 +183,4 @@ h5{
     left: 10vw;
     height: 30%;
     width: 30%;
-}
-@keyframes shake {
-    from, to {
-        transform: translate3d(0, 0, 0);
-    }
-
-    10%, 30%, 50%, 70%, 90% {
-        transform: translate3d(-10px, 0, 0);
-    }
-
-    20%, 40%, 60%, 80% {
-        transform: translate3d(10px, 0, 0);
-    }
 }
