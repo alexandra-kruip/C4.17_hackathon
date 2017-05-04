@@ -5,9 +5,7 @@
 }
 body{
     font-family: pokemonSolid;
-    letter-spacing: 5px;
-    text-shadow: 1px 5px black, 1px 5px black, 1px 5px black, 1px -5px black;
-    background-image: url("images/background.jpg ");
+    background-image: url("images/background.jpg");
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     height: 100%;
@@ -24,14 +22,12 @@ body{
     display: inline-block;
     width: 20vw;
     height: 70vh;
-    /*border: solid 2px black;*/
     position: absolute;
     top: 25%;
 }
 #gameArea {
-    height: 48vw;
-    width: 32vw;
-    /*border: solid 2px black;*/
+    height: 50vw;
+    width: 38vw;
     border-radius: 1vh;
     transform: rotate(-90deg);
     position: absolute;
@@ -45,8 +41,11 @@ body{
     position: relative;
     text-align: center;
     font-size: 5em;
-    line-height: 11vh;
+    line-height: 10vh;
     color: yellow;
+    padding-top: 2%;
+    text-shadow: 1px 5px dodgerblue, 1px 5px dodgerblue, 1px 5px dodgerblue, 1px -5px dodgerblue;
+    letter-spacing: 5px;
 }
 .rightSideBar{
     display: inline-block;
@@ -110,12 +109,12 @@ img{
 .player1 {
     background-color: orangered;
     animation-name: bounceInRight;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 .player2 {
     background-color: blue;
     animation-name: bounceInRight;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 
 .player3 {
@@ -157,4 +156,31 @@ button:focus {
         transform: none;
     }
 }
-
+h5{
+    font-size: 5em;
+    text-align: center;
+}
+#pikapika{
+    position: relative;
+    left: 5vw;
+    height: 30%;
+    width: 30%;
+}
+#char {
+    position: relative;
+    left: 10vw;
+    height: 30%;
+    width: 30%;
+}
+#squirtle {
+    position: relative;
+    left: 10vw;
+    height: 30%;
+    width: 30%;
+}
+#bulb {
+    position: relative;
+    left: 10vw;
+    height: 30%;
+    width: 30%;
+}
