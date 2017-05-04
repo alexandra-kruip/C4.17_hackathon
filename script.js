@@ -77,9 +77,9 @@ function colClicked () {
                 } else if (cp === 2) {
                     clickedArr[clicked][i] = "3";
                     $(cell[i]).addClass("player3");
-                    currentPlayer = 0;
-
+                    currentPlayer++;
                     winCondition();
+                    currentPlayer = 0;
 
                     $(".p1 img").addClass("active1");
                     $(".p3 img").removeClass("active3");
@@ -122,7 +122,13 @@ function randomize () {  // randomize columns when the three player colors line 
 
 //jinwoo Part
 function MatchedFour(){
-    $('#myModal').modal('show');
+    if(currentPlayer - 1 == 0){
+        $('#myModal1').modal('show');
+    } else if (currentPlayer - 1 == 1){
+        $('#myModal2').modal('show');
+    } else {
+        $('#myModal3').modal('show');
+    }
 }
 
 //Jinwoo's longlong win condition
@@ -139,14 +145,12 @@ function winCondition(){
                         winCount++;
                         if (clickedArr[xValue][yValue -3] == clickedArr[xValue][yValue]) {
                             winCount++;
-
                         }
                     }
                 }
             }
             if (winCount === 4){
                 MatchedFour();
-                $('#myModal').modal('show');
                 console.log('On 1 you won! :' + 'x:' + x + " y:" + y );
             }
             //for side on dom// down on array
@@ -177,7 +181,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                $('#myModal').modal('show');
                 console.log('on 2 you won! :'+ 'x:' + x + " y:" + y );
             }
             // for rightUp(leftDown) on dom // downRight(upLeft) on array
@@ -207,7 +210,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                $('#myModal').modal('show');
                 console.log('on 3 you won! :' + 'x:' + x + " y:" + y);
             }
             //for rightDown(leftUP) on dom // downLeft(upRight) on array
@@ -236,7 +238,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                $('#myModal').modal('show');
                 console.log('on 4 you won! :' + 'x:' + x + " y:" + y);
             }
         }
