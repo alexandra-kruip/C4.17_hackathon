@@ -153,7 +153,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
                 return;
             }
             //for side on dom// down on array
@@ -183,7 +182,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
                 return;
             }
             // for rightUp(leftDown) on dom // downRight(upLeft) on array
@@ -213,7 +211,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
                 return;
             }
             //for rightDown(leftUP) on dom // downLeft(upRight) on array
@@ -242,7 +239,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-                console.log('on 4 you won! :' + 'x:' + xValue + " y:" + yValue);
                 return;
             }
         }
