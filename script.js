@@ -182,7 +182,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-
                 return;
             }
             // for rightUp(leftDown) on dom // downRight(upLeft) on array
@@ -212,7 +211,6 @@ function winCondition(){
             }
             if (winCount === 4){
                 MatchedFour();
-
                 return;
             }
             //for rightDown(leftUP) on dom // downLeft(upRight) on array
