@@ -245,6 +245,15 @@ function winCondition(){
     }
 }
 
+
+
+
+
+
+
+
+
+
 function ThreeDiffColorOne(){
     var playerClicked = parseInt(clickedArr[xValue][yValue]);
     specialCount = 1;
