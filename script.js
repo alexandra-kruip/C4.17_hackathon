@@ -136,7 +136,6 @@ function MatchedFour(){
 
 function freeze(){
      $(celli[0]).addClass("freeze");
-    $(celli[0]).addClass("freeze");
     clickedArr[xValue][yValue] = "4";
     console.log(celli[yValue]);
 }
